@@ -1,0 +1,41 @@
+PATH
+  remote: .
+  specs:
+    banc_box_crowd (0.0.1)
+      faraday
+      faraday_middleware
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.3.4)
+    crack (0.4.0)
+      safe_yaml (~> 0.9.0)
+    diff-lcs (1.2.4)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
+    faraday_middleware (0.9.0)
+      faraday (>= 0.7.4, < 0.9)
+    multipart-post (1.2.0)
+    rake (10.0.4)
+    rspec (2.13.0)
+      rspec-core (~> 2.13.0)
+      rspec-expectations (~> 2.13.0)
+      rspec-mocks (~> 2.13.0)
+    rspec-core (2.13.1)
+    rspec-expectations (2.13.0)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.13.1)
+    safe_yaml (0.9.3)
+    webmock (1.11.0)
+      addressable (>= 2.2.7)
+      crack (>= 0.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  banc_box_crowd!
+  rake
+  rspec
+  webmock
