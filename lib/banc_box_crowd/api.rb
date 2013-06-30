@@ -1,27 +1,11 @@
 module BancBoxCrowd
 	module Api
 		def create_investor options
-			data = {
-				:name => options.delete(:name),
-				:first_name => options.delete(:first_name),
-				:last_name => options.delete(:last_name),
-				:email => options.delete(:email),
-				:phone => options.delete(:phone),
-				:address_1 => options.delete(:address_1),
-				:city => options.delete(:city),
-				:state => options.delete(:state),
-				:zip => options.delete(:zip),
-				:ssn => options.delete(:ssn),
-				:dob => options.delete(:dob),
-				:bank_name => options.delete(:bank_name),
-				:account_number => options.delete(:account_number),
-				:account_type => options.delete(:account_type),
-				:routing_number => options.delete(:routing_number),
-				:created_by => options.delete(:created_by)
-			}
-			data.merge! options
+			object_from_response(BancBoxCrowd::Id, :post, 'createInvestor', options)
+		end
 
-			object_from_response(BancBoxCrowd::Id, :post, 'createInvestor',data)
+		def create_issuer options
+			object_from_response(BancBoxCrowd::Id, :post, 'createIssuer', options)
 		end
 
 		def submit_agreement options
