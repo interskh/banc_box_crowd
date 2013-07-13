@@ -17,7 +17,11 @@ module BancBoxCrowd
 		end
 
 		def verify_identity options
-			get_response(:post, 'verifyIdentity', options)
+			data = {
+				:generate_questions => boolean_to_yes_no(options.delete(:generate_questions))
+			}
+			data.merge! options
+			get_response(:post, 'verifyIdentity', data)
 		end
 
 		def verify_answers options
