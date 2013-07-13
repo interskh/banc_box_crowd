@@ -30,7 +30,7 @@ module BancBoxCrowd
 
 		def fund_account options
 			data = {
-				:link_bank_account => boolean_to_yes_no(options.delete(:link_bank_account)),
+				:link_bank_account => boolean_to_y_n(options.delete(:link_bank_account)),
 				:submit_timestamp => formatted_time(options.delete(:submit_timestamp)),
 			}
 			data.merge! options
@@ -39,7 +39,7 @@ module BancBoxCrowd
 
 		def fund_escrow options
 			data = {
-				:fund_on_availability => boolean_to_yes_no(options.delete(:fund_on_availability))
+				:fund_on_availability => boolean_to_y_n(options.delete(:fund_on_availability))
 			}
 			data.merge! options
 			get_response(:post, 'fundEscrow', data)
@@ -53,6 +53,10 @@ module BancBoxCrowd
 
 	    def formatted_date(date)
 	      date && date.strftime('%Y-%m-%d')
+	    end
+
+	    def boolean_to_y_n(bool)
+	      bool ? 'Yes' : 'No'
 	    end
 
 	    def boolean_to_yes_no(bool)
