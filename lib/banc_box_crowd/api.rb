@@ -56,11 +56,11 @@ module BancBoxCrowd
 	    end
 
 	    def boolean_to_y_n(bool)
-	      bool ? 'Yes' : 'No'
+	      bool ? 'Y' : 'N'
 	    end
 
 	    def boolean_to_yes_no(bool)
-	      bool ? 'Y' : 'N'
+	      bool ? 'Yes' : 'No'
 	    end
 
 		def get_response(method, endpoint, data)
