@@ -16,6 +16,14 @@ module BancBoxCrowd
 			get_response(:post, 'submitAgreement', options)
 		end
 
+		def verify_identity options
+			get_response(:post, 'verifyIdentity', options)
+		end
+
+		def verify_answers options
+			get_response(:post, 'verifyAnswers', options)
+		end
+
 		def fund_account options
 			data = {
 				:link_bank_account => boolean_to_yes_no(options.delete(:link_bank_account)),
