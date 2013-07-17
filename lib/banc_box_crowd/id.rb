@@ -3,6 +3,7 @@ module BancBoxCrowd
 
     attr_reader :request_id
     attr_reader :id
+    attr_reader :error
 
     # Create a new banc_box id.
     #
@@ -14,12 +15,14 @@ module BancBoxCrowd
     def initialize(options={})
       @request_id = options[:request_id]
       @id = options[:id]
+      @error = BancBoxCrowd::Error.new(options[:error])
     end
 
     def self.from_response(response)
       self.new(
         :request_id => response['request_id'],
-        :id => response['id']
+        :id => response['id'],
+        :error => response['error']
       )
     end
 
