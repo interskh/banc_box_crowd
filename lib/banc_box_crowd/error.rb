@@ -7,9 +7,5 @@ module BancBoxCrowd
       @data = data
       super(@data.inspect)
     end
-
-    def is_empty?
-    	self.message == "nil"
-    end
   end
 end

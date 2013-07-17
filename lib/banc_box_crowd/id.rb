@@ -15,14 +15,14 @@ module BancBoxCrowd
     def initialize(options={})
       @request_id = options[:request_id]
       @id = options[:id]
-      @error = BancBoxCrowd::Error.new(options[:error])
+      @error = options[:error] ? BancBoxCrowd::Error.new(options[:error]) : nil
     end
 
     def self.from_response(response)
       self.new(
         :request_id => response['request_id'],
         :id => response['id'],
-        :error => response['error']
+        :error => response['error'] ? respone['error'] : nil
       )
     end
 
