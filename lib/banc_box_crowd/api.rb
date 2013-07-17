@@ -65,9 +65,11 @@ module BancBoxCrowd
 
 		def get_response(method, endpoint, data)
 	      response = BancBoxCrowd.connection.__send__(method, endpoint, data)
-	      if response['error'] != nil
-	        raise BancBoxCrowd::Error.new(response['error'])
-	      end
+	      unless !data[:ignore_exceptions].empty?
+		      if response['error'] != nil
+		        raise BancBoxCrowd::Error.new(response['error'])
+		      end
+		  end
 	      response
     	end
 
