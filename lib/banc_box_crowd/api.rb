@@ -64,13 +64,14 @@ module BancBoxCrowd
 	    end
 
 		def get_response(method, endpoint, data)
-	      response = BancBoxCrowd.connection.__send__(method, endpoint, data)
-	      unless data.has_key?[:ignore_exceptions] && data[:ignore_exceptions]
-		      if response['error'] != nil
-		        raise BancBoxCrowd::Error.new(response['error'])
-		      end
-		  end
-	      response
+			ignore_exceptions = data.has_key?[:ignore_exceptions] && data.delete(:ignore_exceptions)	
+	      	response = BancBoxCrowd.connection.__send__(method, endpoint, data)
+	      	unless ignore_exceptions
+		    	if response['error'] != nil
+		        	raise BancBoxCrowd::Error.new(response['error'])
+		      	end
+		  	end
+	      	response
     	end
 
     	def object_from_response(klass, method, endpoint, data)
