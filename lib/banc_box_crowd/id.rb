@@ -22,7 +22,7 @@ module BancBoxCrowd
       self.new(
         :request_id => response['request_id'],
         :id => response['id'],
-        :error => response['error'] ? respone['error'] : nil
+        :error => response['error'] ? response['error'] : nil
       )
     end
 
