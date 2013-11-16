@@ -1,15 +1,15 @@
 module BancBoxCrowd
   module Api
     def create_investor options
-      object_from_response(BancBoxCrowd::Id, :post, 'createInvestor', options)
+      get_response(:post, 'createInvestor', options)
     end
 
     def create_issuer options
-      object_from_response(BancBoxCrowd::Id, :post, 'createIssuer', options)
+      get_response(:post, 'createIssuer', options)
     end
 
     def create_escrow options
-      object_from_response(BancBoxCrowd::Id, :post, 'createEscrowAccount', options)
+      get_response(:post, 'createEscrowAccount', options)
     end
 
     def submit_agreement options
