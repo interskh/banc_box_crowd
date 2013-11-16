@@ -45,6 +45,10 @@ module BancBoxCrowd
       get_response(:post, 'fundEscrow', data)
     end
 
+    def get_investor_list
+      get_response(:post, 'getInvestorList', {})
+    end
+
     private
 
     def formatted_time(time)
