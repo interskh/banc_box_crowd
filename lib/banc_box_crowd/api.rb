@@ -49,6 +49,10 @@ module BancBoxCrowd
       get_response(:post, 'getInvestorList', {})
     end
 
+    def get_issuer_list
+      get_response(:post, 'getIssuerList', {})
+    end
+
     private
 
     def formatted_time(time)
