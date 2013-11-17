@@ -49,8 +49,16 @@ module BancBoxCrowd
       get_response(:post, 'getInvestorList', {})
     end
 
+    def get_investor_details options
+      get_response(:post, 'getInvestorDetails', options)
+    end
+
     def get_issuer_list
       get_response(:post, 'getIssuerList', {})
+    end
+
+    def get_issuer_details options
+      get_response(:post, 'getIssuerDetails', options)
     end
 
     private
