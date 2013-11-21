@@ -45,6 +45,18 @@ module BancBoxCrowd
       get_response(:post, 'fundEscrow', data)
     end
 
+    def withdraw_funds options
+      data = {
+        :submit_timestamp => formatted_time(options.delete(:submit_timestamp)),
+      }
+      data.merge! options
+      get_response(:post, 'withdrawFunds', data)
+    end
+
+    def link_external_account options
+      get_response(:post, 'linkExternalAccount', options)
+    end
+
     def get_investor_list
       get_response(:post, 'getInvestorList', {})
     end
