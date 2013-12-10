@@ -105,7 +105,8 @@ module BancBoxCrowd
     end
 
     def get_response(method, endpoint, data)
-      ignore_exceptions = data.has_key?(:ignore_exceptions) && data.delete(:ignore_exceptions)  
+      ignore_exceptions = data.has_key?(:ignore_exceptions) && data.delete(:ignore_exceptions)
+      data.select! {|k,v| not v.nil?}
       response = BancBoxCrowd.connection.__send__(method, endpoint, data)
       unless ignore_exceptions
         if response['error'] != nil
