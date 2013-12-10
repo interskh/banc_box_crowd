@@ -81,6 +81,11 @@ module BancBoxCrowd
       get_response(:post, 'getEscrowDetails', options)
     end
 
+    def get_escrow_activity options
+      get_response(:post, 'getActivityDetails', options)
+    end
+
+
     private
 
     def formatted_time(time)
