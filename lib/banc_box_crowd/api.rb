@@ -57,6 +57,10 @@ module BancBoxCrowd
       get_response(:post, 'linkExternalAccount', options)
     end
 
+    def change_investor_contribution options
+      get_response(:post, 'changeInvestorContribution', options)
+    end
+
     def get_investor_list
       get_response(:post, 'getInvestorList', {})
     end
