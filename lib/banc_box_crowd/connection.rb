@@ -38,8 +38,10 @@ module BancBoxCrowd
 
     def faraday_connection
       options = {
-        :url => @base_url
+        :url => @base_url,
+        :ssl => {:verify => false}
       }
+
       @faraday_connection ||= Faraday::Connection.new(options) do |builder|
         builder.use Faraday::Request::UrlEncoded
         # builder.use Faraday::Request::Multipart
