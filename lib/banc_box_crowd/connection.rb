@@ -39,7 +39,8 @@ module BancBoxCrowd
     def faraday_connection
       options = {
         :url => @base_url,
-        :ssl => {:verify => false}
+        :ssl => { :verify => OpenSSL::SSL::VERIFY_PEER, :ca_file => '/usr/lib/ssl/certs/ca-certificates.crt' }
+        #:ssl => {:verify => false}
       }
 
       @faraday_connection ||= Faraday::Connection.new(options) do |builder|
