@@ -12,6 +12,18 @@ module BancBoxCrowd
       get_response(:post, 'createEscrowAccount', options)
     end
 
+    def cancel_escrow options
+      get_response(:post, 'cancelEscrow', options)
+    end
+
+    def close_escrow options
+      get_response(:post, 'closeEscrow', options)
+    end
+
+    def update_escrow_account options
+      get_response(:post, 'updateEscrowAccount', options)
+    end
+
     def submit_agreement options
       get_response(:post, 'submitAgreement', options)
     end
